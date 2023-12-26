@@ -4,7 +4,7 @@ Simple Suitelet that exports Saved Search results to PDF
 ## Options / Features
 - Saved search column labels are used for PDF table headers
 - Advanced PDF template is located in templates folder
-- A4-landscape
+- PDF is in A4-landscape
 
 ## Screenshots
 ![App Screenshot](screenshots/screenshot1.png)
