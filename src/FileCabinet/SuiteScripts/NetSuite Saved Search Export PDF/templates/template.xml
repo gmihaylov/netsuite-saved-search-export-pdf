@@ -1,0 +1,104 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+    <head>
+        <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+    <macrolist>
+        <macro id="nlheader">
+            <table class="header">
+                <tr>
+                    <td>Saved Search Export ${data.savedSearchId} (Page <pagenumber/> of <totalpages/>)</td>
+                </tr>
+            </table>
+        </macro>
+        <macro id="nlfooter">
+            <table class="footer">
+                <tr>
+                    <td><barcode codetype="code128" showtext="true" value="${data.savedSearchId}"/></td>
+                    <td align="right"><br/><pagenumber/> of <totalpages/></td>
+                </tr>
+            </table>
+        </macro>
+    </macrolist>
+    <style type="text/css">
+        * {
+        font-family: NotoSans, sans-serif;
+        }
+        table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        font-size: 8pt;
+        vertical-align: top;
+        width: 100%;
+        margin-top: 5px;
+        }
+
+        th {
+        font-weight: bold;
+        font-size: 8pt;
+        vertical-align: middle;
+        padding: 5px 6px 3px;
+        background-color: #e3e3e3;
+        color: #333333;
+        border-collapse:collapse;
+        }
+
+        td {
+        padding: 4px 6px;
+        border-collapse:collapse;
+        }
+
+        td p { align:left }
+        th p { align:left }
+
+        b {
+        font-weight: bold;
+        color: #333333;
+        }
+
+        table.footer td {
+        padding: 0px;
+        font-size: 8pt;
+        border-collapse:collapse;
+        }
+
+        table.header p {
+        align: center;
+        font-size: 24px;
+        font-weight: bold;
+        }
+
+        table.footer p {
+        align: center;
+        }
+
+        table.itemtable th {
+        border-collapse:collapse;
+        }
+
+        p {
+        align: left;
+        }
+
+    </style>
+</head>
+<body header="nlheader" header-height="6%" footer="nlfooter" footer-height="4%" padding="0.35in 0.2in 0.45in 0.2in" size="A4-landscape">
+<table class="itemtable" style="margin-top: 10px; align: center;">
+    <thead>
+        <tr>
+            <#list data.columns as column>
+            <th>${column}</th>
+            </#list>
+        </tr>
+    </thead>
+    <#list data.rows as row>
+    <tr>
+        <#list data.columns as column>
+        <#assign index = '_' + column_index>
+        <td>${row[index]}</td>
+        </#list>
+    </tr>
+    </#list>
+</table>
+</body>
+</pdf>
